@@ -2,7 +2,7 @@
 
 ## Звонок от заказчика
 
-[Слушать звонок]()
+[Слушать звонок](https://drive.google.com/file/d/1yQeFOvl8sssYpZPieCMl__3D68OzQFP6/view?usp=sharing)
 
 <details>
 <summary>Транскрипция звонка</summary>
