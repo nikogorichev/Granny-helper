@@ -1,6 +1,4 @@
 const router = require('express').Router();
-const { redirect } = require('express/lib/response');
-const async = require('hbs/lib/async');
 const { Granny_user } = require('../../db/models');
 const { Child_user, Relation } = require('../../db/models');
 
@@ -36,8 +34,8 @@ router.route('/registration')
         const child = await Child_user.create({ name, email, password });
         const relation = await Relation.create({ id_child: child.id, id_granny: grammyUser.id });
         req.session.uid = child.id;
+        
         res.redirect('/');
-
       }
     }
   });
@@ -61,6 +59,12 @@ router.route('/login')
     } else {
       res.redirect('/');
     }
+  });
+
+router.route('/logout')
+  .get((req, res) => {
+    req.session.destroy();
+    res.redirect('/');
   });
 
 module.exports = router;
