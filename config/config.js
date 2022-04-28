@@ -6,9 +6,9 @@ const FileStore = require('session-file-store')(session);
 const logger = require('morgan');
 
 const local = (req, res, next) => {
-  if (req.session?.user) {
+  if (req.session.uid) {
     res.locals.isAuth = true;
-    res.locals.user = req.session.user;
+    res.locals.uid = req.session.uid;
   }
   return next();
 };
