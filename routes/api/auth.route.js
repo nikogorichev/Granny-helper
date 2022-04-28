@@ -32,9 +32,9 @@ router.route('/registration')
         res.json({ text: 'Такой бабушки нет' });
       } else {
         const child = await Child_user.create({ name, email, password });
-        const relation = await Relation.create({ id_child: child.id, id_granny: grammyUser.id });
+        await Relation.create({ id_child: child.id, id_granny: grammyUser.id });
         req.session.uid = child.id;
-        
+
         res.redirect('/');
       }
     }
