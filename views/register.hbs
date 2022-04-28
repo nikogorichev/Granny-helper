@@ -1,5 +1,6 @@
 {{> havbar}}
-<form class="container" method="post" action="/registration">
+
+<form class="container" id="form" method="post" action="/registration">
    <div class="mb-3">
     <label for="exampleInputPassword1" class="form-label">Name</label>
     <input type="text" name="name" class="form-control" id="name">
@@ -25,10 +26,10 @@
   
   <div class="mb-3" id="grannyName" style="visibility: hidden">
     <label for="exampleInputPassword1" class="form-label">Granny User name</label>
-    <input type="text" name="grannyName" class="form-control" id="name">
+    <input type="text" name="grannyName" class="form-control" id="grannyName">
     
   </div>
-  
+  <p id="errr"></p>
 
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
