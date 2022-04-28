@@ -4,7 +4,6 @@ const { Card } = require('../../db/models')
 router.route('/')
    .get( async(req, res) => {
       const images = await Card.findAll({ where: { id: 1 }, raw: true })
-      console.log(images);
       res.render('main', { images })
    });
 
@@ -23,10 +22,14 @@ router.get('/profile', (req, res) => {
 router.route('/login')
   .get((req, res) => {
     res.render('login');
-
+  });
 router.route('/register')
   .get((req, res) => {
     res.render('register');
   });
+
+router.get('/showAddForm', (req, res) => {
+   res.render('addImage')
+})
 
 module.exports = router;
