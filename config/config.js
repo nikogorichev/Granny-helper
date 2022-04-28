@@ -11,7 +11,8 @@ const local = (req, res, next) => {
   if (req.session.uid) {
     res.locals.isAuth = true;
     res.locals.uid = req.session.uid;
-    res.locals.isChild = req.session.isChild;
+    res.locals.name = req.session.name;
+    res.locals.type = req.session.type;
   }
   return next();
 };
