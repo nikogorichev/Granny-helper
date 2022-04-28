@@ -1,13 +1,12 @@
 const router = require('express').Router();
-const { Card, Child_user, Granny_user } = require('../../db/models');
+const { Card } = require('../../db/models');
 
 router.route('/')
-  .get(async (req, res) => {
-    const images = await Card.findAll({ where: { id: 1 }, raw: true });
-    console.log(images);
-
-    res.render('main', { images });
-  });
+   .get( async(req, res) => {
+      const images = await Card.findAll({ where: { id_granny: req.session.uid }, raw: true })
+      console.log(images);
+      res.render('main', { images })
+   });
 
 router.get('/instruction', (req, res) => {
   res.render('instruction');
@@ -30,5 +29,9 @@ router.route('/register')
   .get((req, res) => {
     res.render('register');
   });
+
+router.get('/showAddForm', (req, res) => {
+   res.render('addImage')
+})
 
 module.exports = router;
