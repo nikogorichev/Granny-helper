@@ -5,7 +5,7 @@ const mainRouter = require('./routes/views/main.route')
 const app = express();
 
 const PORT = 3000;
-
+app.disable('x-powered-by');
 config(app);
 app.use('/', mainRouter)
 
