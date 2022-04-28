@@ -1,1 +1,28 @@
 {{> havbar}}
+
+<div id="addDiv">
+  <button id="showAddForm">Добавить картинку</button>
+</div>
+
+<div class="superClass">
+  {{#each images }}
+  <div id="div_{{id}}">
+    <img src="{{link}}" alt="...">
+    <div>
+      <button id="{{id}}" type="button" class="delete-btn">Удалить</button>
+    </div>
+    <div>
+      <button id="info_{{id}}" type="button" class="listen-btn">Прослушать</button>
+    </div>
+  </div>
+  {{/each}}
+</div>
+
+<div class="superClass">
+  <div>
+    <img src='https://www.unisender.com/ru/blog/wp-content/uploads/2020/01/8-url.png' alt="...">
+  </div>
+  <div>
+    <img src='https://webznam.ru/_bl/16/41608074.jpg' alt="...">
+  </div>
+</div>

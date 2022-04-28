@@ -4,11 +4,14 @@ const hbs = require('hbs');
 const session = require('express-session');
 const FileStore = require('session-file-store')(session);
 const logger = require('morgan');
+const fileUpload = require('express-fileupload');
+
 
 const local = (req, res, next) => {
-  if (req.session?.user) {
+  if (req.session.uid) {
     res.locals.isAuth = true;
-    res.locals.user = req.session.user;
+    res.locals.uid = req.session.uid;
+    res.locals.isChild = req.session.isChild;
   }
   return next();
 };
@@ -36,7 +39,8 @@ module.exports = function config(app) {
   app.use(express.static(path.join(process.env.PWD, 'public')));
   app.use(session(sessionConfig));
   app.use(logger('dev'));
-  app.use(local)
+  app.use(local);
+  app.use(fileUpload({}));
 
   hbs.registerPartials(path.join(process.env.PWD, 'views', 'partials'));
 };
