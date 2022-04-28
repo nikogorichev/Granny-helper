@@ -1,6 +1,9 @@
 .superClass{ display: flex;
-  align-items: center;
-  justify-content: center; 
-  width: 70vw;
-  flex-flow:row-wrap;
+  align-items: flex-end;
+  justify-content: space-around; 
+}
+
+img{
+  height: 40vh;
+  width: 25vw;
 }
