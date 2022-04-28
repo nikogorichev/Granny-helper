@@ -7,7 +7,7 @@ const authRouter = require('./routes/api/auth.route');
 const app = express();
 
 const PORT = 3000;
-
+app.disable('x-powered-by');
 config(app);
 app.use('/', mainRouter);
 app.use('/', authRouter);

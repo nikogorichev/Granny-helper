@@ -5,6 +5,14 @@ const session = require('express-session');
 const FileStore = require('session-file-store')(session);
 const logger = require('morgan');
 
+const local = (req, res, next) => {
+  if (req.session?.user) {
+    res.locals.isAuth = true;
+    res.locals.user = req.session.user;
+  }
+  return next();
+};
+
 const sessionConfig = {
   // будем хранить данные сессии в файлах, а не в оперативной памяти
   // тогда пользователей не будет выкидывать из сессии при перезагрузке сессии
@@ -28,6 +36,7 @@ module.exports = function config(app) {
   app.use(express.static(path.join(process.env.PWD, 'public')));
   app.use(session(sessionConfig));
   app.use(logger('dev'));
+  app.use(local)
 
   hbs.registerPartials(path.join(process.env.PWD, 'views', 'partials'));
 };
