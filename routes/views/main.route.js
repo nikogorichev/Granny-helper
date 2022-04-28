@@ -5,7 +5,7 @@ router.route('/')
   .get(async (req, res) => {
     const images = await Card.findAll({ where: { id: 1 }, raw: true });
     console.log(images);
-    console.log(images[0].link)
+    console.log(images[0].link);
     res.render('main', { images });
   });
 

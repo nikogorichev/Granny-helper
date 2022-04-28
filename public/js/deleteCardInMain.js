@@ -2,6 +2,7 @@ const div = document.querySelectorAll('.delete-btn');
 
 div.forEach((el) => {
   el.addEventListener('click', async (event) => {
+    console.log(el);
     event.preventDefault();
     const { id } = event.target;
     // console.log(id);
@@ -13,7 +14,7 @@ div.forEach((el) => {
         accept: 'json',
       },
     });
-    const data = await response.json();
-    div.remove();
+    const deletedDiv = document.querySelector(`#div_${id}`);
+    deletedDiv.remove();
   });
 });

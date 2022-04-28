@@ -1,17 +1,14 @@
 {{> havbar}}
 
-<div>
-  Добавление мема
+<div id="addDiv">
+  <button id="showAddForm">Добавить картинку</button>
 </div>
 
 <div class="superClass">
   {{#each images }}
-  <div>
-    <img src="{{images.link}}" alt="...">
+  <div id="div_{{id}}">
+    <img src="{{link}}" alt="...">
     <div>
-      {{!-- {{!-- <p class="card-text">{{name}}</p>
-      <p class="card-text"> {{initial_price}}</p>
-      <p class="card-text">{{description}}</p> --}}
       <button id="{{id}}" type="button" class="delete-btn">Удалить</button>
     </div>
   </div>
