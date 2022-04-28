@@ -1,1 +1,40 @@
 {{> havbar}}
+
+<div>
+  Добавление мема
+</div>
+
+<div class="container" style=" display: flex;
+  align-items: center;
+  justify-content: center; 
+  width: 70vw;
+  ">
+  удаление мема!
+  <div class="box">
+  {{#each images }}
+    <div class="card">
+      <img src={{images.link}} class="card-img-top" alt="...">
+      <div class="card-body">
+        {{!-- {{!-- <p class="card-text">{{name}}</p>
+        <p class="card-text"> {{initial_price}}</p>
+        <p class="card-text">{{description}}</p> --}}
+        <button id={{id}} type="button" class="btn btn-primary delete-btn">Удалить</button>
+      </div>
+    </div>
+  {{/each}}
+  </div>
+</div>
+
+
+
+<div class="superClass">
+  <div class="card">
+    <img src='https://www.unisender.com/ru/blog/wp-content/uploads/2020/01/8-url.png' class="card-img-top" alt="...">
+    <img src='https://webznam.ru/_bl/16/41608074.jpg' class="card-img-top" alt="...">
+    <div class="card-body">
+      {{!-- <p class="card-text">{{name}}</p>
+      <p class="card-text"> {{initial_price}}</p>
+      <p class="card-text">{{description}}</p> --}}
+    </div>
+  </div>
+</div>
