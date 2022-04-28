@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Card } = require('../../db/models');
+const { Card, sequelize } = require('../../db/models');
 
 router.route('/')
   .get(async (req, res) => {
@@ -38,5 +38,12 @@ router.route('/register')
 router.get('/showAddForm', (req, res) => {
   res.render('addImage');
 });
+
+router.delete('/delete/:id', async(req, res) => {
+  const { id } = req.params
+// const del = await Card.findOne({ where: { id }, raw: true});
+await sequelize.query(`DELETE FROM "Cards" WHERE "id" = ${id}`)
+  res.end()
+})
 
 module.exports = router;
