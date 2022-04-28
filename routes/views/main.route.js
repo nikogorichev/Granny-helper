@@ -1,11 +1,20 @@
 const router = require('express').Router();
-const { Card } = require('../../db/models');
+const { Card, Granny_user, Relation } = require('../../db/models');
 
 router.route('/')
   .get(async (req, res) => {
-    const images = await Card.findAll({ where: { id_granny: req.session.uid }, raw: true });
-    console.log(images);
-    res.render('main', { images });
+    if (res.locals.isAuth) {
+      const images = await Card.findAll({ where: { id_granny: req.session.uid }, raw: true });
+      console.log(images);
+      res.render('main', { images });
+    } else {
+      res.render('main');
+    }
+    if (!res.locals.type) {
+      const babushka = await Relation.findAll({ where: { id_child: req.session.uid }, raw: true });
+      
+      console.log(babushka);
+    }
   });
 
 router.get('/instruction', (req, res) => {
