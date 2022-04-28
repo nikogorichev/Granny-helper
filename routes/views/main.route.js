@@ -20,4 +20,13 @@ router.get('/profile', (req, res) => {
    res.render('profile')
 });
 
+router.route('/login')
+  .get((req, res) => {
+    res.render('login');
+
+router.route('/register')
+  .get((req, res) => {
+    res.render('register');
+  });
+
 module.exports = router;
