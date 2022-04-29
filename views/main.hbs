@@ -1,29 +1,31 @@
 {{> havbar}}
  {{#if type}}
 <div id="addDiv">
-  <button id="showAddForm">Добавить картинку</button>
+  <button class="btn btn-success" id="showAddForm">Добавить картинку</button>
 </div>
- {{/if}}
-
+{{/if}}
 <div class="superClass">
   {{#each images }}
   <div id="div_{{id}}">
-    <img src="{{link}}" alt="...">
+     <a href="/recognise/{{this.id}}" class="card-link recognise" data-image-path={{this.path}}><img src="{{link}}" alt="..."></a>
     <div>
-      <button id="{{id}}" type="button" class="delete-btn">Удалить</button>
-    </div>
-    <div>
-      <button id="info_{{id}}" type="button" class="listen-btn">Прослушать</button>
+      <button id="{{id}}" type="button" class="delete-btn btn btn-danger">Удалить</button>
     </div>
   </div>
   {{/each}}
 </div>
 
+<div class="loader">
+  <div class="lds-heart">
+    <div></div>
+  </div>
+</div>
+
 <div class="superClass">
-  <div>
+  <div class="card">
     <img src='https://www.unisender.com/ru/blog/wp-content/uploads/2020/01/8-url.png' alt="...">
   </div>
-  <div>
+  <div class="card">
     <img src='https://webznam.ru/_bl/16/41608074.jpg' alt="...">
   </div>
 </div>

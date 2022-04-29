@@ -7,7 +7,7 @@ div.forEach((el) => {
     const { id } = event.target;
     // console.log(id);
     // console.log(link);
-    const response = await fetch(`/main/${id}`, {
+    const response = await fetch(`/delete/${id}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',

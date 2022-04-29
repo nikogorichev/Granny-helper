@@ -7,3 +7,29 @@ img{
   height: 40vh;
   width: 25vw;
 }
+
+.costumNav{
+  height: 150px;
+  display: flex;
+}
+
+.naming{
+  font-size:50px;
+  font-family:"Fira Mono";
+}
+
+.mini{
+  font-size:25px;
+  font-family:"Fira Mono";
+  margin: 5px;
+}
+
+.body{
+  background-color: dodgerblue;
+}
+.card{
+  border-style:solid;
+  border-color: gold;
+  border-width: 5px;
+  margin: 5px;
+}
