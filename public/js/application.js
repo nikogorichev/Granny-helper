@@ -36,7 +36,6 @@ select.forEach((el) => {
   });
 });
 
-
 form.addEventListener('submit', async (event) => {
   try {
     event.preventDefault();
@@ -57,7 +56,7 @@ form.addEventListener('submit', async (event) => {
     const response = await fetch(action, {
       method,
       headers: {
-        'Content-Type': 'Application/json'
+        'Content-Type': 'Application/json',
       },
       body: JSON.stringify({
         name: name.value,
