@@ -19,15 +19,12 @@ const worker = createWorker();
 router.get('/:id', async (req, res) => {
   const {id} = req.params;
   const link = await Card.findOne({where: {id}, attributes: ['link'], raw: true})
-  console.log(link.link);
 
   const readImage = async (file) => {
     await worker.load();
-    await worker.loadLanguage('rus');
-    await worker.initialize('rus');
+    await worker.loadLanguage('rus+eng');
+    await worker.initialize('rus+eng');
     const { data: { text } } = await worker.recognize(file);
-    // console.log(text);
-    await worker.terminate();
     return text;
   };
 
