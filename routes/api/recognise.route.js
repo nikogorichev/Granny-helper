@@ -28,7 +28,7 @@ router.get('/:id', async (req, res) => {
     const { data: { text } } = await worker.recognize(file);
     // console.log(text);
     await worker.terminate();
-    return text
+    return text;
   };
 
   let textImage = await readImage(path.join(process.env.PWD, 'public', link.link));
