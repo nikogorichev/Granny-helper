@@ -1,35 +1,35 @@
 {{> havbar}}
 
-<form class="container" id="form" method="post" action="/registration">
+<form class="container authconteiner" id="form" method="post" action="/registration">
+  <p id="errr" class="erro"></p>
    <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Name</label>
-    <input type="text" name="name" class="form-control" id="name">
+    <label for="exampleInputPassword1" class="form-label authlabel">Введите имя пользователя</label>
+    <input type="text" name="name" placeholder="имя пользователя" class="form-control" id="name">
   </div>
   <div class="mb-3">
-    <label for="exampleInputEmail1" class="form-label">Email address</label>
-    <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp">
+    <label for="exampleInputEmail1" class="form-label authlabel">Введите почту</label>
+    <input type="email" name="email" placeholder="Почта" class="form-control" id="email" aria-describedby="emailHelp">
   </div>
   <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Password</label>
-    <input type="password" name="password" class="form-control" id="password">
+    <label for="exampleInputPassword1" class="form-label authlabel">Вdедите пароль</label>
+    <input type="password" name="Пароль" placeholder="Пароль" class="form-control" id="password">
   </div>
   <div id = "radioForm" method="post" action="/">
   <div class="mb-3">
     <input type="radio" name="select" value="granny" id="granny" checked="checked">
-    <label for="choice1">Бабушка</label>
+    <label for="choice1" class="authlabel">Бабушка</label>
   </div>
   <div class="mb-3">
     <input type="radio" name="select" value="child" id="child" >
-    <label for="choice2">Внук</label>
+    <label for="choice2" class="authlabel">Внук</label>
   </div>
   </div>
   
   <div class="mb-3" id="grannyName" style="visibility: hidden">
-    <label for="exampleInputPassword1" class="form-label">Granny User name</label>
-    <input type="text" name="grannyName" class="form-control" id="grannyName">
+    <label for="exampleInputPassword1" class="form-label authlabel"> Введите имя бабушки</label>
+    <input type="text" name="grannyName" placeholder="Имя бабушки" class="form-control" id="grannyName">
   </div>
   
-  <p id="errr"></p>
 
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <button type="submit" class="btn btn-primary authbtn">Регистрация</button>
 </form>
