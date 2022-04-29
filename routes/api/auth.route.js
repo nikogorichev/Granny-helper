@@ -31,7 +31,7 @@ router.route('/registration')
           text: 'Такое имя пользователя уже занято',
         });
       } else if (!grammyUser) {
-        res.json({ text: 'Такой бабушки нет' });
+        res.status(401).json({ text: 'Такой бабушки нет' });
       } else {
         const child = await Child_user.create({ name, email, password });
         await Relation.create({ id_child: child.id, id_granny: grammyUser.id });
@@ -65,7 +65,9 @@ router.route('/login')
       req.session.type = false;
       res.redirect('/');
     } else {
-      res.redirect('/');
+      res.json({
+        text: 'Неверный пароль или логин',
+      });
     }
   });
 
