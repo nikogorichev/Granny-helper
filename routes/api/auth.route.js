@@ -18,7 +18,9 @@ router.route('/registration')
         });
       } else {
         const newUser = await Granny_user.create({ name, email, password });
-        req.session.uid = Granny_user.id;
+        req.session.uid = newUser.id;
+        req.session.name = newUser.name;
+        req.session.type = true;
         res.redirect('/');
       }
     } else if (item === 'child') {
@@ -29,11 +31,13 @@ router.route('/registration')
           text: 'Такое имя пользователя уже занято',
         });
       } else if (!grammyUser) {
-        res.json({ text: 'Такой бабушки нет' });
+        res.status(401).json({ text: 'Такой бабушки нет' });
       } else {
         const child = await Child_user.create({ name, email, password });
         await Relation.create({ id_child: child.id, id_granny: grammyUser.id });
         req.session.uid = child.id;
+        req.session.name = child.name;
+        req.session.type = false;
 
         res.redirect('/');
       }
@@ -52,12 +56,18 @@ router.route('/login')
     const childUser = await Child_user.findOne({ where: { name, password } });
     if (grannyUser) {
       req.session.uid = grannyUser.id;
+      req.session.name = grannyUser.name;
+      req.session.type = true;
       res.redirect('/');
     } else if (childUser) {
       req.session.uid = childUser.id;
+      req.session.name = childUser.name;
+      req.session.type = false;
       res.redirect('/');
     } else {
-      res.redirect('/');
+      res.json({
+        text: 'Неверный пароль или логин',
+      });
     }
   });
 
