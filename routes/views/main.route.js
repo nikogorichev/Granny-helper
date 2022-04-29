@@ -8,17 +8,22 @@ router.route('/')
   .get(async (req, res) => {
     if (res.locals.isAuth) {
       const images = await Card.findAll({ where: { id_granny: req.session.uid }, raw: true });
-      res.render('main', {
-        images, isAuth: res.locals.isAuth, user: res.locals.name, type: res.locals.type,
-      });
+      if (!res.locals.type) {
+        const relation = await Relation.findOne({ where: { id_child: res.locals.uid }, raw: true });
+        const granny = await Granny_user.findOne({ where: { id: relation.id_granny }, raw: true });
+        console.log(granny);
+        let arr = [];
+        arr.push(granny)
+        res.render('main', {
+          arr, images, isAuth: res.locals.isAuth, user: res.locals.name, type: res.locals.type,
+        });
+      } else {
+        res.render('main', {
+          images, isAuth: res.locals.isAuth, user: res.locals.name, type: res.locals.type,
+        });
+      }
     } else {
       res.render('main');
-    }
-    if (!res.locals.type) {
-      console.log('1238888888888888888', req.locals.uid);
-      // const relation = await Relation.findOne({ where: { id_child: req.session.uid }, raw: true });
-
-      console.log(babushka);
     }
   });
 

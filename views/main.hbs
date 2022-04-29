@@ -1,4 +1,11 @@
 {{> havbar}}
+{{#each arr}}
+
+  <div>
+    {{name}}
+  </div>
+{{/each}}
+
  {{#if type}}
 <div id="addDiv">
   <button class="btn btn-success" id="showAddForm">Добавить картинку</button>
