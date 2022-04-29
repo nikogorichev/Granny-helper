@@ -3,20 +3,22 @@
 <div id="addDiv">
   <button class="btn btn-success" id="showAddForm">Добавить картинку</button>
 </div>
- {{/if}}
-
+{{/if}}
 <div class="superClass">
   {{#each images }}
-  <div class="card" id="div_{{id}}">
-    <img src="{{link}}" alt="...">
+  <div id="div_{{id}}">
+     <a href="/recognise/{{this.id}}" class="card-link recognise" data-image-path={{this.path}}><img src="{{link}}" alt="..."></a>
     <div>
       <button id="{{id}}" type="button" class="delete-btn btn btn-danger">Удалить</button>
     </div>
-    <div>
-      <button id="info_{{id}}" type="button" class="listen-btn btn btn-primary">Прослушать</button>
-    </div>
   </div>
   {{/each}}
+</div>
+
+<div class="loader">
+  <div class="lds-heart">
+    <div></div>
+  </div>
 </div>
 
 <div class="superClass">

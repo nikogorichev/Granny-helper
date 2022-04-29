@@ -8,7 +8,7 @@ router.route('/')
   .get(async (req, res) => {
     if (res.locals.isAuth) {
       const images = await Card.findAll({ where: { id_granny: req.session.uid }, raw: true });
-      res.render('main', {
+      res.render('main', { 
         images, isAuth: res.locals.isAuth, user: res.locals.name, type: res.locals.type,
       });
     } else {
