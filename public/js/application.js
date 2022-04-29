@@ -9,6 +9,22 @@ const errr = document.querySelector('#errr');
 
 //console.log(loginEr);
 
+const listenButton = document.querySelector('#listen-btn');
+const textImg = document.querySelector('#textImage');
+console.log((textImg.innerText));
+
+listenButton.addEventListener('click', () => {
+  console.log(textImg.innerText);
+  // synth.speak(new SpeechSynthesisUtterance(textImg.innerText));
+  const utterance = new SpeechSynthesisUtterance(textImg.innerText);
+  // utterance.voice = (synth.getVoices())[15];
+  // utterance.pitch = 1;
+  // utterance.rate = 1;
+  utterance.volume = 1;
+  console.log('!!!');
+  synth.speak(utterance);
+});
+
 select.forEach((el) => {
   el.addEventListener('change', async (event) => {
     const item = event.target.value;
@@ -20,57 +36,18 @@ select.forEach((el) => {
   });
 });
 
-// const recognizeBtns = document.querySelectorAll('.recognise');
-// const loader = document.querySelector('.loader');
-// if (recognizeBtns) {
-//   recognizeBtns.forEach((recognizeBtn) => {
-//     recognizeBtn.addEventListener('click', async (event) => {
-//       event.preventDefault();
-//       loader.style.display = 'block';
-//       const {
-//         imagePath,
-//       } = event.target.dataset;
-//       console.log('imagePath app', imagePath);
-//       const response = await fetch('/recognise', {
-//         method: 'POST',
-//         headers: {
-//           'Content-type': 'application/json',
-//         },
-//         body: JSON.stringify({
-//           imagePath,
-//         }),
-//       });
-//       const textData = await response.json();
-//       loader.style.display = 'none';
 
-//       const {
-//         text,
-//       } = textData;
-//       console.log(text);
-//       // let playThis =  new SpeechSynthesisUtterance(text);
-//       // synth.speak(playThis);
-//       const message = new SpeechSynthesisUtterance(text);
-//       console.log(message);
-//       message.onstart = function () {
-//         console.log('start');
-//       };
-//       message.onerror = function () {
-//         console.error('SpeechSynthesisUtterance.onerror');
-//       };
-//       message.onend = function () {
-//         console.log('end');
-//       };
-//       message.text = text;
-//       synth.speak(message);
-//     });
-//   });
-// }
 form.addEventListener('submit', async (event) => {
   try {
     event.preventDefault();
     let item;
     const {
-      name, email, password, grannyName, method, action,
+      name,
+      email,
+      password,
+      grannyName,
+      method,
+      action,
     } = event.target;
     for (const el of select) {
       if (el.checked) {
@@ -79,7 +56,9 @@ form.addEventListener('submit', async (event) => {
     }
     const response = await fetch(action, {
       method,
-      headers: { 'Content-Type': 'Application/json' },
+      headers: {
+        'Content-Type': 'Application/json'
+      },
       body: JSON.stringify({
         name: name.value,
         email: email.value,
@@ -98,21 +77,21 @@ form.addEventListener('submit', async (event) => {
 // console.log(loginform);
 // loginform.addEventListener('submit', async (event) => {
 //   event.preventDefault();
-  // try {
-  //   const {
-  //     name, password, method, action,
-  //   } = event.target;
-  //   const response = await fetch(action, {
-  //     method,
-  //     headers: { 'Content-Type': 'Application/json' },
-  //     body: JSON.stringify({
-  //       name: name.value,
-  //       password: password.value,
-  //     }),
-  //   });
-  //   const data = await response.json();
-  //   loginEr.innerText = data.text;
-  // } catch (e) {
-  //   window.location.replace('/');
-  // }
+// try {
+//   const {
+//     name, password, method, action,
+//   } = event.target;
+//   const response = await fetch(action, {
+//     method,
+//     headers: { 'Content-Type': 'Application/json' },
+//     body: JSON.stringify({
+//       name: name.value,
+//       password: password.value,
+//     }),
+//   });
+//   const data = await response.json();
+//   loginEr.innerText = data.text;
+// } catch (e) {
+//   window.location.replace('/');
+// }
 //});
