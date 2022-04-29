@@ -4,7 +4,10 @@ const synth = window.speechSynthesis;
 const granneName = document.querySelector('#grannyName');
 const form = document.querySelector('#form');
 const errr = document.querySelector('#errr');
-const loginform = document.querySelector('#loginform');
+// const loginform = document.querySelector('#loginform');
+// const loginEr = document.querySelector('#loginEr');
+
+//console.log(loginEr);
 
 select.forEach((el) => {
   el.addEventListener('change', async (event) => {
@@ -87,13 +90,29 @@ form.addEventListener('submit', async (event) => {
     });
     const body = await response.json();
     errr.innerText = body.text;
-    // errr.innerText = body.text;
   } catch (e) {
     window.location.replace('/');
-    //errr.innerText = body.text;
   }
 });
 
-loginform.addEventListener('submit', async (event) => {
-  event;
-});
+// console.log(loginform);
+// loginform.addEventListener('submit', async (event) => {
+//   event.preventDefault();
+  // try {
+  //   const {
+  //     name, password, method, action,
+  //   } = event.target;
+  //   const response = await fetch(action, {
+  //     method,
+  //     headers: { 'Content-Type': 'Application/json' },
+  //     body: JSON.stringify({
+  //       name: name.value,
+  //       password: password.value,
+  //     }),
+  //   });
+  //   const data = await response.json();
+  //   loginEr.innerText = data.text;
+  // } catch (e) {
+  //   window.location.replace('/');
+  // }
+//});
