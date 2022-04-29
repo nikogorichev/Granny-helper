@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const async = require('hbs/lib/async');
 const {
-  Card, Granny_user, Child_user, Relation,
+  Card, Granny_user, Child_user, Relation, sequelize
 } = require('../../db/models');
 
 router.route('/')
@@ -55,5 +55,12 @@ router.route('/lk')
       });
     }
   });
+
+router.delete('/delete/:id', async(req, res) => {
+  const { id } = req.params
+const del = await Card.findOne({ where: { id }, raw: true});
+await sequelize.query(`DELETE FROM "Cards" WHERE "id" = ${id}`)
+  res.end()
+})
 
 module.exports = router;
