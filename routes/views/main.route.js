@@ -6,14 +6,15 @@ router.route('/')
     if (res.locals.isAuth) {
       const images = await Card.findAll({ where: { id_granny: req.session.uid }, raw: true });
       res.render('main', {
-        images, isAuth: res.locals.isAuth, user: res.locals.name, type: res.locals.type
-      })
+        images, isAuth: res.locals.isAuth, user: res.locals.name, type: res.locals.type,
+      });
     } else {
       res.render('main');
     }
     if (!res.locals.type) {
-      const babushka = await Relation.findAll({ where: { id_child: req.session.uid }, raw: true });
-      
+      console.log('1238888888888888888', req.locals.uid);
+      // const relation = await Relation.findOne({ where: { id_child: req.session.uid }, raw: true });
+
       console.log(babushka);
     }
   });
