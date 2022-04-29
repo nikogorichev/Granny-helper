@@ -12,11 +12,15 @@
       <button id="{{id}}" type="button" class="delete-btn">Удалить</button>
     </div>
     <div>
-      <button id="info_{{id}}" type="button" class="listen-btn">Прослушать</button>
-      
+      <button id="info_{{id}}" type="button" class="listen-btn"><a href="#" class="card-link recognise"
+          data-image-path={{this.path}}>Прослушать текст</a></button>
     </div>
   </div>
   {{/each}}
+</div>
+
+<div class="loader">
+  <div class="lds-heart"><div></div></div>
 </div>
 
 <div class="superClass">
@@ -27,3 +31,5 @@
     <img src='https://webznam.ru/_bl/16/41608074.jpg' alt="...">
   </div>
 </div>
+
+
