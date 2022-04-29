@@ -13,13 +13,10 @@ const listenButton = document.querySelector('#listen-btn');
 const textImg = document.querySelector('#textImage');
 console.log((textImg.innerText));
 
+
 listenButton.addEventListener('click', () => {
   console.log(textImg.innerText);
-  // synth.speak(new SpeechSynthesisUtterance(textImg.innerText));
   const utterance = new SpeechSynthesisUtterance(textImg.innerText);
-  // utterance.voice = (synth.getVoices())[15];
-  // utterance.pitch = 1;
-  // utterance.rate = 1;
   utterance.volume = 1;
   console.log('!!!');
   synth.speak(utterance);
