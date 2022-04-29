@@ -1,16 +1,28 @@
 const router = require('express').Router();
 const async = require('hbs/lib/async');
 const {
-  Card, Granny_user, Child_user, Relation, sequelize
+  Card, Granny_user, Child_user, Relation, sequelize,
 } = require('../../db/models');
 
 router.route('/')
   .get(async (req, res) => {
+    console.log(res.locals.uid); 
     if (res.locals.isAuth) {
       const images = await Card.findAll({ where: { id_granny: req.session.uid }, raw: true });
-      res.render('main', { 
-        images, isAuth: res.locals.isAuth, user: res.locals.name, type: res.locals.type,
-      });
+      if (!res.locals.type) {
+        const relation = await Relation.findOne({ where: { id_child: res.locals.uid }, raw: true });
+        const granny = await Granny_user.findOne({ where: { id: relation.id_granny }, raw: true });
+        console.log(granny);
+        let arr = [];
+        arr.push(granny)
+        res.render('main', {
+          arr, images, isAuth: res.locals.isAuth, user: res.locals.name, type: res.locals.type,
+        });
+      } else {
+        res.render('main', {
+          images, isAuth: res.locals.isAuth, user: res.locals.name, type: res.locals.type,
+        });
+      }
     } else {
       res.render('main');
     }
@@ -56,11 +68,11 @@ router.route('/lk')
     }
   });
 
-router.delete('/delete/:id', async(req, res) => {
-  const { id } = req.params
-const del = await Card.findOne({ where: { id }, raw: true});
-await sequelize.query(`DELETE FROM "Cards" WHERE "id" = ${id}`)
-  res.end()
-})
+router.delete('/delete/:id', async (req, res) => {
+  const { id } = req.params;
+  const del = await Card.findOne({ where: { id }, raw: true });
+  await sequelize.query(`DELETE FROM "Cards" WHERE "id" = ${id}`);
+  res.end();
+});
 
 module.exports = router;

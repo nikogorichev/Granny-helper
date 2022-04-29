@@ -1,16 +1,14 @@
 {{> havbar}}
-<form id="loginform" class="container" method="post" action="/login">
+<form id="loginform" class="container authconteiner" method="post" action="/login">
+    <p id="loginEr" class="erro"></p>
   <div class="mb-3">
-    <label for="exampleInputEmail1" class="form-label">User Name</label>
-    <input type="text"  name="name" class="form-control" id="name" aria-describedby="emailHelp">
+    <label for="exampleInputEmail1" class="form-label authlabel">Введите имя пользователя </label>
+    <input type="text"  name="name" class="form-control" id="name" aria-describedby="emailHelp" placeholder="Имя пользователя">
   </div>
   <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Password</label>
-    <input type="password" name="password" class="form-control" id="password">
-  </div>
-  <div>
-    <p id="loginEr"></p>
+    <label for="exampleInputPassword1" class="form-label authlabel">Введите пароль</label>
+    <input type="password" name="password" class="form-control" id="password" placeholder="Пароль">
   </div>
    
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <button type="submit" class="btn btn-primary authbtn">Войти</button>
 </form>

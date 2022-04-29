@@ -1,35 +1,142 @@
-.superClass{ display: flex;
+html, body {
+  height: 100%;
+}
+
+
+.superClass{ 
+  display: flex;
   align-items: flex-end;
   justify-content: space-around; 
+  flex-wrap: wrap;
+  
 }
 
 img{
-  height: 40vh;
-  width: 25vw;
+  height: 35vh;
+  width: 20vw;
 }
 
 .costumNav{
-  height: 150px;
+  height: 140px;
   display: flex;
+  background-color: steelblue;
 }
 
 .naming{
   font-size:50px;
-  font-family:"Fira Mono";
+  font-family:"Verdana";
 }
 
 .mini{
   font-size:25px;
-  font-family:"Fira Mono";
+  font-family:"Verdana";
   margin: 5px;
 }
 
 .body{
-  background-color: dodgerblue;
+  display: flex;
+  flex-direction: column;
+ 
+ background-color: whitesmoke;
 }
+
+.content {
+  flex: 1 0 auto;
+}
+
 .card{
+  display: flex;
+  align-items: center;
   border-style:solid;
-  border-color: gold;
+  border-color: steelblue;
   border-width: 5px;
+  border-radius:10px;
+  margin: 8px;
+ 
+}
+
+.authconteiner{
+  width: 350px;
+  margin-top: 50px;
+  border-style:solid;
+  border-color: steelblue;
+  border-width: 5px;
+  border-radius:15px;
+}
+
+.authlabel{
+  font-size:20px;
+  font-family:"Verdana";
+}
+.erro{
+  width: 380px;
+  height: 50px;
+  font-family:"Verdana";
+  font-size:20px;
+  color: red;
+}
+.grammyName{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+font-size:40px;
+font-family:"Verdana";
+width: 600px;
+background-color: steelblue;
+margin: 10px;
+}
+.delete{
+margin: 5px;
+}
+
+.addbtn{
+margin: 8px;
+}
+
+.homepage{
+  display: flex;
+  align-items:center;
+  flex-direction: column;
+}
+
+.meme{
+  font-family:"Verdana";
+  
+}
+.authbtn{
+  margin-bottom: 10px;
+}
+
+.lkli{
+  font-family:"Verdana";
   margin: 5px;
+  font-size:20px;
+}
+footer{
+      height: 80px;
+    padding: 10px; /* Поля вокруг текста */
+    background: steelblue;
+    /* Цвет фона */
+    color: #fff; /* Цвет текста */
+    width: 100%; /* Ширина слоя */
+}
+.listen{
+   font-family:"Verdana";
+   margin: 5px;
+   font-size:20px;
+}
+.contList{
+  
+font-family:"Verdana";
+ width: 350px;
+ margin-top: 50px;
+ border-style:solid;
+ border-color: steelblue;
+ border-width: 5px;
+ border-radius:15px;
+}
+
+.inst{
+  
+  font-family:"Verdana";
 }
