@@ -7,4 +7,3 @@ show.addEventListener('click', async (event) => {
   const body = await response.text();
   addDiv.innerHTML = body;
 });
-
