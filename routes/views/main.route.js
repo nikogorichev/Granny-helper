@@ -6,6 +6,7 @@ const {
 
 router.route('/')
   .get(async (req, res) => {
+    console.log(res.locals.uid); 
     if (res.locals.isAuth) {
       const images = await Card.findAll({ where: { id_granny: req.session.uid }, raw: true });
       if (!res.locals.type) {

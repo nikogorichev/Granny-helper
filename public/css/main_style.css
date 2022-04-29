@@ -19,6 +19,7 @@ img{
 .costumNav{
   height: 140px;
   display: flex;
+  background-color: steelblue;
 }
 
 .naming{
@@ -35,6 +36,7 @@ img{
 .body{
   display: flex;
   flex-direction: column;
+ 
  background-color: whitesmoke;
 }
 
@@ -46,7 +48,7 @@ img{
   display: flex;
   align-items: center;
   border-style:solid;
-  border-color: gold;
+  border-color: steelblue;
   border-width: 5px;
   border-radius:10px;
   margin: 8px;
@@ -57,7 +59,7 @@ img{
   width: 350px;
   margin-top: 50px;
   border-style:solid;
-  border-color: gold;
+  border-color: steelblue;
   border-width: 5px;
   border-radius:15px;
 }
@@ -80,7 +82,7 @@ img{
 font-size:40px;
 font-family:"Verdana";
 width: 600px;
-background-color: teal;
+background-color: steelblue;
 margin: 10px;
 }
 .delete{
@@ -113,7 +115,28 @@ margin: 8px;
 footer{
       height: 80px;
     padding: 10px; /* Поля вокруг текста */
-    background: #39b54a; /* Цвет фона */
+    background: steelblue;
+    /* Цвет фона */
     color: #fff; /* Цвет текста */
     width: 100%; /* Ширина слоя */
+}
+.listen{
+   font-family:"Verdana";
+   margin: 5px;
+   font-size:20px;
+}
+.contList{
+  
+font-family:"Verdana";
+ width: 350px;
+ margin-top: 50px;
+ border-style:solid;
+ border-color: steelblue;
+ border-width: 5px;
+ border-radius:15px;
+}
+
+.inst{
+  
+  font-family:"Verdana";
 }

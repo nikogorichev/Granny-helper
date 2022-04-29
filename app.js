@@ -7,7 +7,7 @@ const addRouter = require('./routes/api/api.route');
 
 const app = express();
 
-const PORT = 3000;
+const PORT = 3001;
 app.disable('x-powered-by');
 config(app);
 app.use('/', mainRouter);
